@@ -1,0 +1,78 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<div class="container" >
+<div id="major" style="display: flex;flex-wrap:wrap;justify-content:space-around;margin-top: 50px;" >
+    <!--div class="card">
+      <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div-->
+ 
+
+
+</div>
+</div>
+
+<script type="text/javascript">
+
+  var city=["Delhi", "Delhi","LuckNow","Mumbai","Kanpur","Hydrabaad","Nairobi","Helsinki","Berlin","Tokyo","Rio","Denver","Oslo"]
+    var division= document.getElementById("major")
+    city.forEach(element => {
+      division.innerHTML+= `
+    <div class="card mt-3" >
+      <div class="card-body ">
+        <h5 class="card-title">${element}</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  
+</div>`
+
+      
+    });
+
+
+    document.getElementById("formSearch").addEventListener("submit", function(event){
+  event.preventDefault()
+  let Target= document.getElementById("Search").value.toLowerCase()
+     
+      
+      city=city.filter(ele=>{
+       
+          return ele.toLowerCase()==Target
+        
+      });
+     
+      division.innerHTML=""
+      city.forEach(element => {
+      division.innerHTML+= `
+    <div class="card" style="margin:5px 5px">
+      <div class="card-body">
+        <h5 class="card-title">${element}</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+    </div>
+  
+</div>`
+
+      
+    });
+});
+
+   
+
+  
+
+</script>
+
+{% endblock %}
